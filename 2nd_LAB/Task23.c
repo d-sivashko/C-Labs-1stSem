@@ -10,8 +10,6 @@ int main()
 	
 	printf("Please, input string: ");
 	gets(string);
-	printf("String: ");
-	puts(string);
 	int counter = 0;
 	int wordLength = 0;
 	int lastSymbol = 0; // Сохранение индекса начала слова
