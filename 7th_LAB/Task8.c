@@ -7,7 +7,31 @@
 
 #include <stdio.h> 
 #include <stdlib.h>
-#include <string.h>
+
+int strncmp_(const char* s1, const char* s2, size_t n) // реализация функции strncmp
+{
+	while (n && *s1 && (*s1 == *s2))
+	{
+		++s1;
+		++s2;
+		--n;
+	}
+	if (n == 0)
+	{
+		return 0;
+	}
+	else
+	{
+		return (*(unsigned char*)s1 - *(unsigned char*)s2);
+	}
+}
+
+char* strcpy_(char* dest, char* src) { // реализация функции strcpy
+	char* orig = dest;
+	while ((*dest++ = *src++) != '\0')
+		;
+	return orig;
+}
 
 int main()
 {
@@ -52,8 +76,8 @@ int main()
 	const size_t oldWordSize = strlen(oldWord), newWordSize = strlen(newWord);
 	for (; *pfreeStr = *pstr; ++pstr, ++pfreeStr) 
 	{
-		if (!strncmp(pstr, oldWord, oldWordSize)) {
-			strcpy(pfreeStr, newWord);
+		if (!strncmp_(pstr, oldWord, oldWordSize)) {
+			strcpy_(pfreeStr, newWord);
 			pstr += oldWordSize - 1;
 			pfreeStr += newWordSize - 1;
 		}
@@ -63,5 +87,3 @@ int main()
 	free(str);
 	return 0;
 }
-
-
