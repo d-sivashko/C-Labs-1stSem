@@ -12,6 +12,10 @@ int main()
 	int i, j, k, n, m, point = 0;
 	printf("Please, input Size of 2D array n: ");
 	scanf_s("%d", &n); m = n;
+	if (n <= 1) {
+		printf("Condition is invalid");
+		return 1;
+	}
 	// Ввод элементов массива
 	a = (int**)malloc(n * sizeof(int*)); // Выделение памяти на элементы строки
 	for (i = 0; i < n; i++) {
@@ -43,8 +47,13 @@ int main()
 	for (k = 0; k < n; k++)
 		printf("%d ", vector[k]);
 	//Вставка строки А в массив n и вывод массива
-	printf("\nInput column of %d you wannt put array A: ", n+1);
-	scanf_s("%d", &point); point--; k = 0;
+	printf("\nInput column from 1 to %d you wannt put array A: ", n+1);
+	scanf_s("%d", &point);
+	if (point <= 0 || point > n +1 ) {
+		printf("Condition is invalid");
+		return 1;
+	}
+	point--; k = 0;
 	printf("New array:\n");
 	for (i = 0; i < n; i++) {
 		a = (int**)realloc(a, n * sizeof(int));
@@ -63,8 +72,5 @@ int main()
 			printf("%5d ", a[i][j]);
 		printf("\n");
 	}
-	// Очистка памяти 
-	free(a);
-	free(vector);
 	return 0;
 }
