@@ -20,10 +20,7 @@ float percentFunc(int num)
     scanf_s("%f", &percent);
     percentFromNum = num * (percent / 100);
     int a = (int)percentFromNum;
-    if ((percentFromNum  - a)!= 0)
-        printf("\nPercent from num = %f", percentFromNum);
-    else
-        printf("\nPercent from num = %d", a);
+    printf("\nPercent from num = %g", percentFromNum);
 }
 
 int main()
