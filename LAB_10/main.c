@@ -9,7 +9,7 @@ int factorial(int n) {
 	return (result);
 }
 
-int main(){
+int main() {
 	int n = 0, result = 0;
 	printf("Please, input number: ");
 	scanf("%d", &n);
